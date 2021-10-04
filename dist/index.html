@@ -1,37 +1,43 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Anime JS practice</title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="styles.css" />
-        <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
-    </head>
-    <body>
-        <div id="app"></div>
-        <div class="top">
-            <input id="counter" value = "0">
-        </div>
-        <script>
+
+<head>
+    <title>Anime JS practice</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Stick+No+Bills:wght@200&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app"></div>
+    <div class="top">
+        <h2>T</h2>
+        <input id="counter" value="0">
+    </div>
+    <script>
         anime({
             targets: '#counter',
             value: [0, 1000],
             duration: 8000,
             round: 1,
-            easing: 'linear',
+            easing: 'linear'
         });
-        </script>
-        <div class="middle">
+    </script>
+    <div class="middle">
         <div class="square"></div>
 
         <script>
-        // anime({
-        //     targets: '.square',
-        //     translateX: 500,
-        //     rotateZ: 360,
-        //     scale: 2,
-        //     duration: 3000,
-        //     loop: true
-        //   });
+            // anime({
+            //     targets: '.square',
+            //     translateX: 500,
+            //     rotateZ: 360,
+            //     scale: 2,
+            //     duration: 3000,
+            //     loop: true
+            // });
         anime ({
             targets: '.square',
             keyframes: [
@@ -43,70 +49,129 @@
             duration: 3000,
             loop: true
         })
-          </script>
-          </div>
-          <div class="bottom">
-            <div class="smallSquare"></div>
-            <div class="smallSquare"></div>
-            <div class="smallSquare"></div>
-            <div class="smallSquare"></div>
-            <div class="smallSquare"></div>
-              <script>
-                  anime({
-                      targets: '.smallSquare',
-                      translateX: anime.stagger(150),
-                      delay: anime.stagger(500, {from: 'last'}),
-                      duration: 3000,
-                      loop: true
-                  })
-              </script>
-          </div>
-          <div class="bottom-two">
-            <div class='squareTimeline'></div>
-            <div class='triangleTimeline'></div>
-            <div class='circleTimeline'></div>
-          <button class="play">Play</button>
-          <button class="pause">Pause</button>
-          <button class="restart">Restart</button>
-          <input type="range" min="1" max="100" value="0" class="progress"></input>
-          <script>
-              var controlsProgressEl = document.querySelector('.progress');
+        </script>
+    </div>
+    <div class="bottom">
+        <div class="smallSquare"></div>
+        <div class="smallSquare"></div>
+        <div class="smallSquare"></div>
+        <div class="smallSquare"></div>
+        <div class="smallSquare"></div>
+        <script>
+            anime({
+                targets: '.smallSquare',
+                translateX: anime.stagger(150),
+                delay: anime.stagger(500, { from: 'last' }),
+                duration: 3000,
+                loop: true
+            })
+        </script>
+    </div>
+    <div class="bottom-two">
+        <div class='squareTimeline'></div>
+        <div class='triangleTimeline'></div>
+        <div class='circleTimeline'></div>
+        <button class="play">Play</button>
+        <button class="pause">Pause</button>
+        <button class="restart">Restart</button>
+        <input type="range" min="1" max="100" value="0" class="progress"></input>
+        <script>
+            var controlsProgressEl = document.querySelector('.progress');
 
-var tl = anime.timeline({
-  direction: 'alternate',
-  loop: true,
-  duration: 500,
-  easing: 'easeInOutSine',
-  update: function(anim) {
-    controlsProgressEl.value = tl.progress;
-  }
-});
+            var tl = anime.timeline({
+                direction: 'alternate',
+                loop: true,
+                duration: 500,
+                easing: 'easeInOutSine',
+                update: function (anim) {
+                    controlsProgressEl.value = tl.progress;
+                }
+            });
 
-tl
-.add({
-  targets: '.squareTimeline',
-  translateX: 270,
-})
-.add({
-  targets: '.circleTimeline',
-  translateX: 270,
-}, '-=100')
-.add({
-  targets: '.triangleTimeline',
-  translateX: 270,
-}, '-=100');
+            tl
+                .add({
+                    targets: '.squareTimeline',
+                    translateX: 270,
+                })
+                .add({
+                    targets: '.circleTimeline',
+                    translateX: 270,
+                }, '-=100')
+                .add({
+                    targets: '.triangleTimeline',
+                    translateX: 270,
+                }, '-=100');
 
-document.querySelector('.play').onclick = tl.play;
-document.querySelector('.pause').onclick = tl.pause;
-document.querySelector('.restart').onclick = tl.restart;
+            document.querySelector('.play').onclick = tl.play;
+            document.querySelector('.pause').onclick = tl.pause;
+            document.querySelector('.restart').onclick = tl.restart;
 
-controlsProgressEl.addEventListener('input', function() {
-  tl.seek(tl.duration * (controlsProgressEl.value / 100));
-});
-</script>
+            controlsProgressEl.addEventListener('input', function () {
+                tl.seek(tl.duration * (controlsProgressEl.value / 100));
+            });
+        </script>
 
-          </div>
-          </script>
-        <script src="bundle.js"></script>
-    </body>
+    </div>
+
+    <div class="farBottom">
+        <div id="shape-holder">
+            <div class="squareIDEK blue"></div>
+        </div>
+        <div class="controls">
+            <button class="play-left">Animate Left</button>
+            <button class="play-background">Animate Background</button>
+            <button class="play-radius">Animate Border Radius</button>
+            <button class="play-all">Animate All Properties</button>
+        </div>
+        <script>
+            var animateLeft = anime({
+                targets: '.squareIDEK',
+                left: '50%',
+                // easing: 'steps(5)',
+                //easing: 'easeInElastic(1, .6)',
+                //easing: 'spring(1, 80, 10, 0)',
+                //easing: 'linear',
+                direction: 'alternate',
+                duration: 2000,
+                autoplay: false
+            });
+
+
+            var animateBackground = anime({
+                targets: '.squareIDEK',
+                backgroundColor: '#f96',
+                autoplay: false,
+                duration: 2000
+            });
+
+            var animateRadius = anime({
+                targets: '.squareIDEK',
+                borderRadius: '50%',
+                duration: 2000,
+                autoplay: false
+
+            });
+
+            var animateAll = anime({
+                targets: '.squareIDEK',
+                backgroundColor: '#f96',
+                borderRadius: '50%',
+                duration: 2000,
+                left: '50%',
+                direction: 'alternate',
+                autoplay: false
+            });
+
+            document.querySelector('.play-left').onclick = animateLeft.restart;
+
+            document.querySelector('.play-background').onclick = animateBackground.restart;
+
+            document.querySelector('.play-radius').onclick = animateRadius.restart;
+
+            document.querySelector('.play-all').onclick = animateAll.restart;</script>
+    </div>
+
+    <script src="bundle.js"></script>
+</body>
+
 </html>
