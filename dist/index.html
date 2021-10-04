@@ -14,41 +14,49 @@
 <body>
     <div id="app"></div>
     <div class="top">
-        <h2>T</h2>
-        <input id="counter" value="0">
+        <!-- <input id="counter" value="0"> -->
+        <div class="counter"></div>
     </div>
     <script>
+        var counter = document.querySelector('.counter')
+
+        var charge = {
+            charged: '0'
+        }
         anime({
-            targets: '#counter',
-            value: [0, 1000],
+            targets: charge,
+            charged: '1000',
             duration: 8000,
             round: 1,
-            easing: 'linear'
+            easing: 'linear',
+            update: function() {
+                counter.innerHTML = JSON.stringify(charge)
+            }
         });
     </script>
     <div class="middle">
         <div class="square"></div>
 
         <script>
-            // anime({
-            //     targets: '.square',
-            //     translateX: 500,
-            //     rotateZ: 360,
-            //     scale: 2,
-            //     duration: 3000,
-            //     loop: true
-            // });
-        anime ({
-            targets: '.square',
-            keyframes: [
-                {translateX: 300, scale: 1},
-                {translateY: 50, scale: 1.5},
-                {translateX: -300, scale: 2},
-                {translateY: -50, scale: 2.5}
-            ],
-            duration: 3000,
-            loop: true
-        })
+            anime({
+                targets: '.square',
+                translateX: 500,
+                rotateZ: 360,
+                scale: 2,
+                duration: 3000,
+                loop: true
+            });
+        // anime ({
+        //     targets: '.square',
+        //     keyframes: [
+        //         {translateX: 300, scale: 1},
+        //         {translateY: 50, scale: 1.5},
+        //         {translateX: -300, scale: 2},
+        //         {translateY: -50, scale: 2.5}
+        //     ],
+        //     duration: 3000,
+        //     loop: true
+        // })
         </script>
     </div>
     <div class="bottom">
@@ -62,6 +70,7 @@
                 targets: '.smallSquare',
                 translateX: anime.stagger(150),
                 delay: anime.stagger(500, { from: 'last' }),
+                direction: 'alternate',
                 duration: 3000,
                 loop: true
             })
