@@ -34,4 +34,5 @@
     "style-loader": "^3.2.1",
     "file-loader": "^6.2.0"
   }
+
 }
