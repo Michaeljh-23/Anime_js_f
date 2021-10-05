@@ -4,8 +4,6 @@ const morgan = require("morgan");
 
 let app = express();
 
-var router = require('./routes.js');
-
 app.use(express.json());
 
 app.use(express.static(__dirname + "/../dist"));

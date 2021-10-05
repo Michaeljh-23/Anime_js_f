@@ -42,4 +42,5 @@ const config = {
     contentBase: './dist'
   }
 };
+
 module.exports = config;
