@@ -1,36 +1,35 @@
 # anime_js_fun
 
-Empty project.
+A starter demo project Showing off the power of animejs.
+
+React and react-animejs installed, experiments are ready to be implemented.
+
+NOTHING is merged into main. Switch to master to see code.
+
+Feel free to update your welcome header name in src/index.js
 
 ## Building and running on localhost
 
 First install dependencies:
 
-```sh
-npm install
-```
+      npm install
 
-To run in hot module reloading mode:
+To run your server:
 
-```sh
-npm start
-```
+      npm start
 
 To create a production build:
 
-```sh
-npm run build-prod
-```
+      npm run build-prod
 
 To create a development build:
 
-```sh
-npm run build-dev
-```
+      npm run build-dev
+
 
 ## Running
 
-Open the file `dist/index.html` in your browser
+Go to localhost:4000 to see animations come to life. Fool around and have fun.
 
 ## Credits
 

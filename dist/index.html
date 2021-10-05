@@ -16,7 +16,6 @@
     <div class="top">
         <!-- <input id="counter" value="0"> -->
         <div class="counter"></div>
-    </div>
     <script>
         var counter = document.querySelector('.counter')
 
@@ -27,36 +26,37 @@
             targets: charge,
             charged: '1000',
             duration: 8000,
-            round: 1,
+            round: 10,
             easing: 'linear',
             update: function() {
                 counter.innerHTML = JSON.stringify(charge)
             }
         });
     </script>
+    </div>
     <div class="middle">
         <div class="square"></div>
 
         <script>
-            anime({
-                targets: '.square',
-                translateX: 500,
-                rotateZ: 360,
-                scale: 2,
-                duration: 3000,
-                loop: true
-            });
-        // anime ({
-        //     targets: '.square',
-        //     keyframes: [
-        //         {translateX: 300, scale: 1},
-        //         {translateY: 50, scale: 1.5},
-        //         {translateX: -300, scale: 2},
-        //         {translateY: -50, scale: 2.5}
-        //     ],
-        //     duration: 3000,
-        //     loop: true
-        // })
+            // anime({
+            //     targets: '.square',
+            //     translateX: 500,
+            //     rotateZ: 360,
+            //     scale: 2,
+            //     duration: 3000,
+            //     loop: true
+            // });
+        anime ({
+            targets: '.square',
+            keyframes: [
+                {translateX: 300, scale: 1},
+                {translateY: 50, scale: 1.5},
+                {translateX: -300, scale: 2},
+                {translateY: -50, scale: 2.5}
+            ],
+            duration: 3000,
+            loop: true
+        })
         </script>
     </div>
     <div class="bottom">

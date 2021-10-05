@@ -14,7 +14,7 @@ class App extends React.Component {
       <div>
 
         <h1 className="HeyBlue">
-          Hey {name}
+          Yo {name}
         </h1>
       </div>
     );
