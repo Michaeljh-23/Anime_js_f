@@ -4,7 +4,7 @@ A starter demo project Showing off the power of animejs.
 
 React and react-animejs installed, experiments are ready to be implemented.
 
-NOTHING is merged into main. Switch to master to see code.
+Ensure you are on master branch.
 
 Feel free to update your welcome header name in src/index.js
 
